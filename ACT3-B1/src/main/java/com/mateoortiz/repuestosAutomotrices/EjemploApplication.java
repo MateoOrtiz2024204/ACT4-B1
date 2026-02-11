@@ -1,4 +1,4 @@
-package com.example.RepuestosAutomotrices;
+package com.mateoortiz.repuestosAutomotrices;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.CommandLineRunner;
