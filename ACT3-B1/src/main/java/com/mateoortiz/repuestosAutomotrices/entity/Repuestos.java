@@ -1,6 +1,7 @@
 package com.mateoortiz.repuestosAutomotrices.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.*;
 
 @Entity
 @Table(name = "Repuestos")
@@ -12,23 +13,29 @@ public class Repuestos {
     private Integer idRepuesto;
 
     @Column(name = "nombre_repuesto")
+    @NotBlank(message = "El nombre no puede estar vacío")
     private String nombreRepuesto;
 
     @Column(name = "categoria_repuesto")
+    @NotBlank(message = "La categoría no puede estar vacía")
     private String categoriaRepuesto;
 
     @Column(name = "precio_compra")
+    @NotNull(message = "El precio de compra no puede estar vacío")
+    @DecimalMin(value = "0.01", message = "El precio de compra debe ser mayor a 0")
     private Double precioCompra;
 
     @Column(name = "precio_venta")
+    @NotNull(message = "El precio de venta no puede estar vacío")
+    @DecimalMin(value = "0.01", message = "El precio de venta debe ser mayor a 0")
     private Double precioVenta;
 
-//-------------
     @ManyToOne
     @JoinColumn(name = "id_proveedor", nullable = false)
+    @NotNull(message = "El proveedor no puede estar vacío")
     private Proveedor proveedor;
-//-------------
 
+    // Getters y Setters
     public Integer getIdRepuesto() {
         return idRepuesto;
     }
