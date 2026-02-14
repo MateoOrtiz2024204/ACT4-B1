@@ -1,8 +1,8 @@
 package com.mateoortiz.repuestosAutomotrices.entity;
 import jakarta.persistence.*;
 
+import java.time.LocalDate;
 import java.util.Date;
-
 
 @Entity
 @Table(name = "Ventas")
@@ -15,13 +15,13 @@ public class Ventas {
     private Integer idVenta;
 
     @Column(name = "fecha_venta")
-    private Date fechaVenta;
+    private LocalDate fechaVenta;
 
     @Column(name = "cantidad")
     private Integer cantidadRepuesto;
 
     @Column(name = "total")
-    private Integer totalRepuesto;
+    private Double totalRepuesto;
 
     //-------------------
     @ManyToOne
